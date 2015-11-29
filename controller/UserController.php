@@ -6,13 +6,24 @@ class UserController {
 		$this->dbController = new DbController();
 	}
 
-
-	public function checkUser(DbController $connection, var $userName, var $password) {
+	public function checkUser($userName, $password) {
 		
 	}
 
-	public function getUser(DbController $dbController, var $uid) {
+	public function getUser($uid) {
 
+	}
+
+	public function addUser() {
+
+	}
+
+	public function updateUser() {
+
+	}
+
+	public function removeUser() {
+		
 	}
 
 	public function close() {

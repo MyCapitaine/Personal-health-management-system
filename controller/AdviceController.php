@@ -1,30 +1,27 @@
 <?php
 require_once('DbController.php');
-class ActivityController {
+class AdviceController {
 	private $dbController;
 	public function __construct() {
 		$this->dbController = new DbController();
 	}
-
-	public function joinActivity() {
-
-	}
-
-	public function addActivity() {
+	
+	public function makeAdvice() {
 
 	}
 
-	public function updateActivity() {
+	public function posterGetAdvices() {
 
 	}
 
-	public function removeActivity() {
+	public function reciverGetAdvices() {
 
 	}
 
-	public function getActivityList() {
-		
+	public function checkAdvice() {
+
 	}
+	
 
 	public function close() {
 		$this->dbController->close();

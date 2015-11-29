@@ -1,28 +1,24 @@
 <?php
 require_once('DbController.php');
-class ActivityController {
+class QuestionController {
 	private $dbController;
 	public function __construct() {
 		$this->dbController = new DbController();
 	}
-
-	public function joinActivity() {
-
-	}
-
-	public function addActivity() {
+	
+	public function makeQuestion() {
 
 	}
 
-	public function updateActivity() {
+	public function posterGetQuestions() {
 
 	}
 
-	public function removeActivity() {
-
+	public function reciverGetQuestions() {
+		
 	}
 
-	public function getActivityList() {
+	public function checkQuestion() {
 		
 	}
 
