@@ -1,18 +1,20 @@
 <?php
 require_once('model.php');
-class Datas implements Model {
+class Users implements Model {
 	public function createTable(& $dbController) {
-		$createDatas =<<<EOF
-			create table DATAS
+		$createUsers =<<<EOF
+			create table USERS
 				(
-					uid int NOT NULL,
-					time int NOT NULL,
-					data text NOT NULL
+					uid int primary key NOT NULL,
+					type text NOT NULL,
+					userName text NOT NULL,
+					password text NOT NULL,
+					info text NOT NULL
 				);
 EOF;
 
-		if($dbController->exec($createDatas)) {
-			echo "<p>datas table created</p>\n";
+		if($dbController->exec($createUsers)) {
+			echo "<p>users table created</p>\n";
 		}
 		else {
 			echo "<p>".$dbController->lastErrorMsg()."</p>\n";
@@ -20,12 +22,12 @@ EOF;
 	}
 
 	public function dropTable(& $dbController) {
-		$dropDatas =<<<EOF
-			drop table DATAS;
+		$dropUsers =<<<EOF
+			drop table USERS;
 EOF;
 
-		if($dbController->exec($dropDatas)) {
-			echo "<p>datas table dropped</p>\n";
+		if($dbController->exec($dropUsers)) {
+			echo "<p>users table dropped</p>\n";
 		}
 		else {
 			echo "<p>".$dbController->lastErrorMsg()."</p>\n";
@@ -37,18 +39,6 @@ EOF;
 		$this->dropTable($dbController);
 		$this->createTable($dbController);
 	}
-
-
-
 }
-
-
-
-
-
-
-
-
-
 
 ?>
