@@ -6,8 +6,8 @@ class Questions implements Model {
 		$createQuestions =<<<EOF
 			create table QUESTIONS
 				(
-					posterId int NOT NULL,
-					reciverId int NOT NULL,
+					posterId integer NOT NULL,
+					reciverId integer NOT NULL,
 					postTime int NOT NULL,
 					recived bool NOT NULL,
 					inner text NOT NULL

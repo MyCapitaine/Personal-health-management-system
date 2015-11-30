@@ -5,11 +5,11 @@ require_once('../model/datas.php');
 require_once('../model/advices.php');
 require_once('../model/activities.php');
 class DbController extends SQLite3 {
-	private $users;
-	private $questions;
-	private $datas;
-	private $advices;
-	private $activities;
+	public $users;
+	public $questions;
+	public $datas;
+	public $advices;
+	public $activities;
 	public function __construct() {
 		$this->open('../db/database.db');
 		$this->users = new Users();

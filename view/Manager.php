@@ -10,39 +10,41 @@
 <?php
 	require_once("../controller/UserController.php");
 	$userController = new UserController();
+	$users = $userController->getUsers();
+	foreach($users as $user) {
+		echo "		<li>uid:".$user->uid."; userName:".$user->userName."; userType:".$user->type."</li>\n";
+	}
 	$userController->close();
 ?>
-		<li>username1</li>
-		<li>username2</li>
-		<li>username3</li>
-		<li>username4</li>
-		<li>username5</li>
-		<li>username6</li>
-		<li>username7</li>
-		<li>username8</li>
-		<li>username9</li>
-		<li>username10</li>
 	</ul>
-	<form id="form1" name="form1" method="post" action="">
+	<form id="manager_post" name="manager_post" method="post" action="../postReciver/ManagerOperation.php">
 		<p>
 			<label>
-				<input type="radio" name="manager_operation" value="delete" id="manager_operation_0" />
+				<input type="radio" name="manager_operation" value="delete" id="manager_operation_delete" />
 				delete
 			</label>
 			<br />
 			<label>
-				<input type="radio" name="manager_operation" value="add" id="manager_operation_1" />
+				<input type="radio" name="manager_operation" value="add" id="manager_operation_add" />
 				add
 			</label>
 			<br />
-			<label for="manager_operate_name"></label>
+			<label>
+				<input type="radio" name="manager_operation" value="update" id="manager_operation_update" />
+				update
+			</label>
+		</p>
+		<p>
 			name
 			<input type="text" name="manager_operate_name" id="manager_operate_name" />
 		</p>
 		<p>
 			password
-			<label for="manager_operate_password"></label>
 			<input type="text" name="manager_operate_password" id="manager_operate_password" />
+		</p>
+		<p>
+			type
+			<input type="text" name="manager_operate_type" id="manager_operate_type" />
 		</p>
 		<p>
 			<input type="submit" name="manager_operate_post" id="manager_operate_post" value="提交" />

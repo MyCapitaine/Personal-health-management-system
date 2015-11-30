@@ -5,17 +5,24 @@ class Activities implements Model{
 		$createActivities =<<<EOF
 			create table ACTIVITIES
 				(
-					AID int primary key NOT NULL,
-					uid int NOT NULL,
-					createUid int NOT NULL,
+					AID integer primary key autoincrement NOT NULL,
+					creatorUid integer NOT NULL,
+					activityName text NOT NULL,
 					inner text NOT NULL,
 					time int NOT NULL,
 					status text NOT NULL
 				);
+
+			create table ACTORS
+				(
+					AID integer NOT NULL,
+					uid integer NOT NULL
+				);
+
 EOF;
 
 		if($dbController->exec($createActivities)) {
-			echo "<p>activities table created</p>\n";
+			echo "<p>activities and actors table created</p>\n";
 		}
 		else {
 			echo "<p>".$dbController->lastErrorMsg()."</p>\n";
@@ -26,9 +33,10 @@ EOF;
 	public function dropTable(& $dbController) {
 		$dropActivities =<<<EOF
 			drop table ACTIVITIES;
+			drop table ACTORS;
 EOF;
 		if($dbController->exec($dropActivities)) {
-			echo "<p>activities table dropped</p>\n";
+			echo "<p>activities and actors table dropped</p>\n";
 		}
 		else {
 			echo "<p>".$dbController->lastErrorMsg()."</p>\n";

@@ -5,9 +5,9 @@ class Advices implements Model{
 		$createAdvices =<<<EOF
 			create table ADVICES
 				(
-					posterId int NOT NULL,
-					reciverId int NOT NULL,
-					postTime int NOT NULL,
+					posterId integer NOT NULL,
+					reciverId integer NOT NULL,
+					postTime integer NOT NULL,
 					recived bool NOT NULL,
 					inner text NOT NULL
 				);

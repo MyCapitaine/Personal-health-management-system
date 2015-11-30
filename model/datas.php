@@ -5,7 +5,7 @@ class Datas implements Model {
 		$createDatas =<<<EOF
 			create table DATAS
 				(
-					uid int NOT NULL,
+					uid integer NOT NULL,
 					time int NOT NULL,
 					data text NOT NULL
 				);
