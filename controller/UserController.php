@@ -28,7 +28,7 @@ class UserController {
 
 	public function getUser($userName) {
 		// $command = "select * from USERS where userName = ".$userName.";";
-
+		
 
 	}
 
@@ -38,17 +38,33 @@ class UserController {
 	}
 
 	public function updateUser($uid, $userName, $password, $type, $info) {
+		$condition = "";
+		$inner = "";
 		if($uid == null) {
-
+			$condition = "userName = '".$userName."'";
 		}
 		else {
-			
+			$condition = "$uid = '".$uid."'";
+			if($userName != null) $inner = ",userName = '".$userName."'";
 		}
-		// 
+		if($password != null) {
+			if($inner != "") $inner = $inner.",";
+			$inner = $inner."password = '".$password."'";
+		}
+		if($type != null) {
+			if($inner != "") $inner = $inner.",";
+			$inner = $inner."type = '".$type."'";
+		}
+		if($info != null) {
+			if($inner != "") $inner = $inner.",";
+			$inner = $inner."info = '".$info."'";
+		}
+		$command = "update USERS set ".$inner." where ".$condition.";";
+		return $this->dbController->exec($command);
 	}
 
 	public function removeUser($userName) {
-		$command = "delete from USERS where userName = ".$userName.";";
+		$command = "delete from USERS where userName = '".$userName."';";
 		return $this->dbController->exec($command);
 	}
 

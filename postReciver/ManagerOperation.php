@@ -1,16 +1,18 @@
 <?php
 
+//error infomation
 $error = "";
+//operation success or fail
 $log = "";
-
-checkName();
+$name = ""; $password = ""; $type = ""; 
+checkName($name);
 //check operation
 if(empty($_POST["manager_operation"])) {
 	$error = $error."<p>CHOOSE A OPERATION</p>\n";
 }
 else if($_POST["manager_operation"] == "add") {
-	checkPassword();
-	checkType();
+	checkPassword($password);
+	checkType($type);
 
 	if($error == "") {
 		require_once('../controller/UserController.php');
@@ -38,7 +40,7 @@ else if($_POST["manager_operation"] == "delete") {
 	}
 }
 else if($_POST["manager_operation"] == "update") {
-	checkType();
+	checkType($type);
 	if($error == "") {
 		require_once('../controller/UserController.php');
 		$controller = new UserController();
@@ -47,6 +49,7 @@ else if($_POST["manager_operation"] == "update") {
 		}
 		else $log = "update fail";
 		$controller->close();
+		echo $log;
 		header("refresh:0;url=../view/Manager.php");
 	}
 }
@@ -59,21 +62,21 @@ function test_input($input) {
 	return $input;
 }
 
-function checkName() {
+function checkName(& $name) {
 	if(!empty($_POST["manager_operate_name"])) {
 		$name = test_input($_POST["manager_operate_name"]);
 	}
 	else $error = $error."<p>NAME EMPTY ERROR</p>\n";
 }
 
-function checkPassword() {
+function checkPassword(& $password) {
 	if(!empty($_POST["manager_operate_password"])) {
 		$password = test_input($_POST["manager_operate_password"]);
 	}
 	else $error = $error."<p>PASSWORD EMPTY ERROR</p>\n";
 }
 
-function checkType() {
+function checkType(& $type) {
 	if(!empty($_POST["manager_operate_type"])) {
 		$type = test_input($_POST["manager_operate_type"]);
 		if($type != "manager" && $type != "coach" && $type != "doctor" && $type != "normal")
