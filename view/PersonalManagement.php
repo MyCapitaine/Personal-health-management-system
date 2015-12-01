@@ -11,9 +11,6 @@
 		<p>welcome，username</p>
 		<form id="personal_manage_post" name="personal_manage_post" method="post" action="../postReciver/PersonalManagementOperation.php">
 			<p>
-				<input type="hidden" name="userName" id="userName" value="userNamed" />
-			</p>
-			<p>
 				infomation
 				<input type="text" name="infomation" id="infomation" />
 			</p>
