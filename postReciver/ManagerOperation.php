@@ -15,41 +15,41 @@ else if($_POST["manager_operation"] == "add") {
 	checkType();
 
 	if($error == "") {
-		require_once('../controller/UserController.php');
+		require_once('/Personal-health-management-system/controller/UserController.php');
 		$controller = new UserController();
 		if($controller->addUser($name, $password, $type)) {
 			$log = "add succussed";
 		}
 		else $log = "add fail";
 		$controller->close();
-		header("refresh:0;url=../view/Manager.php");
+		header("refresh:0;url=/Personal-health-management-system/view/Manager.php");
 
 	}
 
 }	
 else if($_POST["manager_operation"] == "delete") {
 	if($error == "") {
-		require_once('../controller/UserController.php');
+		require_once('/Personal-health-management-system/controller/UserController.php');
 		$controller = new UserController();
 		if($controller->removeUser($name)) {
 			$log = "delete succussed";
 		}
 		else $log = "delete fail";
 		$controller->close();
-		header("refresh:0;url=../view/Manager.php");
+		header("refresh:0;url=/Personal-health-management-system/view/Manager.php");
 	}
 }
 else if($_POST["manager_operation"] == "update") {
 	checkType();
 	if($error == "") {
-		require_once('../controller/UserController.php');
+		require_once('/Personal-health-management-system/controller/UserController.php');
 		$controller = new UserController();
 		if($controller->updateUser(null, $name, null, $type, null)) {
 			$log = "update succussed";
 		}
 		else $log = "update fail";
 		$controller->close();
-		// header("refresh:0;url=../view/Manager.php");
+		header("refresh:0;url=/Personal-health-management-system/view/Manager.php");
 	}
 }
 

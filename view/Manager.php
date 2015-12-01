@@ -1,23 +1,26 @@
 <?php 
 	$partName = 'Manager';
-	require('./part/head.inc'); 
+	require('../view/part/head.inc'); 
 ?>
 	
 
     <body>
         <h1>ManagerPage</h1>
+<?php
+    require("../view/part/welcome.inc");
+?>
         <ul>
-    <?php
-        require_once("../controller/UserController.php");
-        $userController = new UserController();
-        $users = $userController->getUsers();
-        foreach($users as $user) {
-            echo "		<li>uid:".$user->uid."; userName:".$user->userName."; userType:".$user->type."</li>\n";
-        }
-        $userController->close();
-    ?>
+<?php
+    require_once("../controller/UserController.php");
+    $userController = new UserController();
+    $users = $userController->getUsers();
+    foreach($users as $user) {
+        echo "		<li>uid:".$user->uid."; userName:".$user->userName."; userType:".$user->type."</li>\n";
+    }
+    $userController->close();
+?>
         </ul>
-        <form id="manager_post" name="manager_post" method="post" action="../postReciver/ManagerOperation.php">
+        <form id="manager_post" name="manager_post" method="post" action="/Personal-health-management-system/postReciver/ManagerOperation.php">
             <p>
                 <label>
                     <input type="radio" name="manager_operation" value="delete" id="manager_operation_delete" onClick="clickDelete()" />

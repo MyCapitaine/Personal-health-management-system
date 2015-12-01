@@ -1,15 +1,17 @@
 <?php 
 	$partName = 'PersonalManagement';
-	require('./part/head.inc'); 
+	require('../view/part/head.inc'); 
 ?>
 
 	<body>
 		<h1>
-			<a href="#">MainPage></a>
+			<a href="/Personal-health-management-system/view/MainPage.php">MainPage></a>
 			PersonalManagement
 		</h1>
-		<p>welcome，username</p>
-		<form id="personal_manage_post" name="personal_manage_post" method="post" action="../postReciver/PersonalManagementOperation.php">
+<?php
+	require("../view/part/welcome.inc");
+?>
+		<form id="personal_manage_post" name="personal_manage_post" method="post" action="/Personal-health-management-system/postReciver/PersonalManagementOperation.php">
 			<p>
 				infomation
 				<input type="text" name="infomation" id="infomation" />

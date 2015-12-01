@@ -1,6 +1,6 @@
 <?php 
 	$partName = 'Doctor';
-	require('./part/head.inc'); 
+	require('../view/part/head.inc'); 
 ?>
 
     <body>

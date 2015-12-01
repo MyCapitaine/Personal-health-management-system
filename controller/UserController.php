@@ -7,7 +7,17 @@ class UserController {
 	}
 
 	public function checkUser($userName, $password) {
-		// 
+		$command = "select * from USERS where userName = '".$userName."';";
+		$result = $this->dbController->query($command);
+		$row = $result->fetchArray();
+		if($row && $row['password'] == $password) {
+			$user = new Users();
+			$user->uid = $row['uid'];
+			$user->type = $row['type'];
+			$user->userName = $row['userName'];
+			return $user;
+		} 
+		else return null;
 	}
 
 	public function getUsers() {

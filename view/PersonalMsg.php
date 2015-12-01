@@ -1,10 +1,10 @@
 <?php 
 	$partName = 'PersonalMsg';
-	require('./part/head.inc'); 
+	require('../view/part/head.inc'); 
 ?>
 
 	<body>
-        <h1><a href="#">MainPage></a>PersonalMsg</h1>
+        <h1><a href="/Personal-health-management-system/view/MainPage.php">MainPage></a>PersonalMsg</h1>
         <h2>unread advices</h2>
         <form>
        		<ul>

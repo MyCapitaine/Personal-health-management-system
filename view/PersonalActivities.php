@@ -1,10 +1,10 @@
 <?php 
 	$partName = 'PersonalActivities';
-	require('./part/head.inc'); 
+	require('../view/part/head.inc'); 
 ?>
-
+    
 	<body>
-    	<h1><a href="#">MainPage></a>PersonalMsg</h1>
+    	<h1><a href="/Personal-health-management-system/view/MainPage.php">MainPage></a>PersonalMsg</h1>
         <h2>created activities</h2>
     	<h2>participanted activities</h2>
     	<h2>join an activity</h2>

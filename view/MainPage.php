@@ -1,14 +1,17 @@
 <?php 
 	$partName = 'Manager';
-	require('./part/head.inc'); 
+	require('../view/part/head.inc'); 
 ?>
 	<body>
-    	<h1>MainPage</h1>
-    	<p><a href="#">PersonalManagement</a></p>
-    	<p><a href="#">PersonalAdvice</a></p>
-    	<p><a href="#">PersonalHistory</a></p>
-    	
+		<h1>MainPage</h1>
+<?php 
+	require('../view/part/welcome.inc');
+?>
+		<p><a href="/Personal-health-management-system/view/PersonalManagement.php">PersonalManagement</a></p>
+		<p><a href="/Personal-health-management-system/view/PersonalMsg.php">PersonalMsg</a></p>
+		<p><a href="/Personal-health-management-system/view/PersonalHistory.php">PersonalHistory</a></p>
+		<p><a href="/Personal-health-management-system/view/PersonalActivities.php">PersonalActivities</a></p>
     
-    </body>
+	</body>
     
 </html>

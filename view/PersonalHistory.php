@@ -1,11 +1,11 @@
 <?php 
   $partName = 'PersonalHistory';
-  require('./part/head.inc'); 
+  require('../view/part/head.inc'); 
 ?>
 
 	<body>
 		<h1>
-			<a href="#">MainPage></a>
+			<a href="/Personal-health-management-system/view/MainPage.php">MainPage></a>
 			PersonalHistoryData
 		</h1>
 		<p>&nbsp;</p>

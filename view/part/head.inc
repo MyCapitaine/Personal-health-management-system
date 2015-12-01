@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link href="./css/<?php echo $partName; ?>.css" rel="stylesheet" type="text/css" />
-		<script src="./script/<?php echo $partName; ?>.js" type="text/javascript"></script>
+		<link href="../view/css/<?php echo $partName; ?>.css" rel="stylesheet" type="text/css" />
+		<script src="../view/script/<?php echo $partName; ?>.js" type="text/javascript"></script>
 		<title><?php echo $partName; ?></title>
 	</head>
