@@ -6,11 +6,11 @@ class ActivityController {
 		$this->dbController = new DbController();
 	}
 
-	public function joinActivity() {
+	public function joinActivity($activityName, $uid) {
 
 	}
 
-	public function addActivity() {
+	public function addActivity($activityName, $creatorUid) {
 
 	}
 

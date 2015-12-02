@@ -2,6 +2,11 @@
 
 require_once('model.php');
 class Questions implements Model {
+	public $posterId;
+	public $reciverId;
+	public $postTime;
+	public $recived;
+	public $inner;
 	public function createTable(& $dbController) {
 		$createQuestions =<<<EOF
 			create table QUESTIONS

@@ -28,6 +28,10 @@ if($error == "") {
 				break;
 			case 'normal':
 				$url = "/Personal-health-management-system/view/MainPage.php";
+				setcookie("user", $user->userName, time() + 3600, "/Personal-health-management-system/view/PersonalActivities.php", "");
+				setcookie("user", $user->userName, time() + 3600, "/Personal-health-management-system/view/PersonalHistory.php", "");
+				setcookie("user", $user->userName, time() + 3600, "/Personal-health-management-system/view/PersonalManagement.php", "");
+				setcookie("user", $user->userName, time() + 3600, "/Personal-health-management-system/view/PersonalMsg.php", "");
 				break;
 			default:
 				break;

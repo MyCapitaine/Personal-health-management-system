@@ -1,6 +1,11 @@
 <?php
 require_once('model.php');
 class Advices implements Model{
+	public $posterId;
+	public $reciverId;
+	public $postTime;
+	public $recived;
+	public $inner;
 	public function createTable(& $dbController) {
 		$createAdvices =<<<EOF
 			create table ADVICES

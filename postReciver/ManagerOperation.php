@@ -15,7 +15,7 @@ else if($_POST["manager_operation"] == "add") {
 	checkType();
 
 	if($error == "") {
-		require_once('/Personal-health-management-system/controller/UserController.php');
+		require_once('../controller/UserController.php');
 		$controller = new UserController();
 		if($controller->addUser($name, $password, $type)) {
 			$log = "add succussed";
@@ -29,7 +29,7 @@ else if($_POST["manager_operation"] == "add") {
 }	
 else if($_POST["manager_operation"] == "delete") {
 	if($error == "") {
-		require_once('/Personal-health-management-system/controller/UserController.php');
+		require_once('../controller/UserController.php');
 		$controller = new UserController();
 		if($controller->removeUser($name)) {
 			$log = "delete succussed";
@@ -42,7 +42,7 @@ else if($_POST["manager_operation"] == "delete") {
 else if($_POST["manager_operation"] == "update") {
 	checkType();
 	if($error == "") {
-		require_once('/Personal-health-management-system/controller/UserController.php');
+		require_once('../controller/UserController.php');
 		$controller = new UserController();
 		if($controller->updateUser(null, $name, null, $type, null)) {
 			$log = "update succussed";

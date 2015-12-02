@@ -11,22 +11,32 @@
 <?php
 	require("../view/part/welcome.inc");
 ?>
-		<form id="personal_manage_post" name="personal_manage_post" method="post" action="/Personal-health-management-system/postReciver/PersonalManagementOperation.php">
+		<p>
+			personal information : 
+<?php
+		require_once("../controller/UserController.php");
+		$controller = new UserController();
+		echo $controller->getUser($_COOKIE['user'])->info;
+		$controller->close();
+?>
+		</p>
+		<form id="personal_management_post" name="personal_management_post" method="post" action="/Personal-health-management-system/postReciver/PersonalManagementOperation.php">
+			<input type="password" style="display:none" name="userName" id="userName" value=<?php echo $_COOKIE['user'] ?> />
 			<p>
 				infomation
-				<input type="text" name="infomation" id="infomation" />
+				<input type="text" name="personal_management_infomation" id="personal_management_infomation" />
 			</p>
 			<p>
 				old password	
-				<input type="password" name="oldPassword" id="oldPassword" />
+				<input type="password" name="personal_management_oldPassword" id="personal_management_oldPassword" />
 			</p>
 			<p>
 				new password
-				<input type="password" name="newPassword" id="newPassword" />
+				<input type="password" name="personal_management_newPassword" id="personal_management_newPassword" />
 			</p>
 			<p>
 				<input type="submit" name="personal_management_update" id="personal_management_update" value="提交" />
-				<input type="submit" name="personal_management_ignore" id="personal_management_ignore" value="放弃" />
+				<input type="button" name="personal_management_ignore" id="personal_management_ignore" value="放弃" onclick="ignoreInput();" />
 			</p>
 		</form>
 	</body>

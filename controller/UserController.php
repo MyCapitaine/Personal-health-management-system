@@ -12,6 +12,7 @@ class UserController {
 		$row = $result->fetchArray();
 		if($row && $row['password'] == $password) {
 			$user = new Users();
+			$user->info = $row['info'];
 			$user->uid = $row['uid'];
 			$user->type = $row['type'];
 			$user->userName = $row['userName'];
@@ -28,6 +29,7 @@ class UserController {
 			$user = new Users();
 			$user->uid = $row['uid'];
 			$user->type = $row['type'];
+			$user->info = $row['info'];
 			$user->userName = $row['userName'];
 			$user->password = $row['password'];
 			$users[] = $user;
@@ -37,9 +39,33 @@ class UserController {
 	}
 
 	public function getUser($userName) {
-		// $command = "select * from USERS where userName = ".$userName.";";
-		
+		$command = "select * from USERS where userName = '".$userName."';";
+		$result = $this->dbController->query($command);
+		$row = $result->fetchArray();
+		if($row) {
+			$user = new Users();
+			$user->uid = $row['uid'];
+			$user->type = $row['type'];
+			$user->info = $row['info'];
+			$user->userName = $row['userName'];
+			return $user;
+		}
+		else return null;
+	}
 
+	public function getUserById($uid) {
+		$command = "select * from USERS where uid = '".$uid."';";
+		$result = $this->dbController->query($command);
+		$row = $result->fetchArray();
+		if($row) {
+			$user = new Users();
+			$user->uid = $row['uid'];
+			$user->type = $row['type'];
+			$user->info = $row['info'];
+			$user->userName = $row['userName'];
+			return $user;
+		}
+		else return null;
 	}
 
 	public function addUser($userName, $password, $type) {
