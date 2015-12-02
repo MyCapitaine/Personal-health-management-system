@@ -52,7 +52,7 @@
 		
 		<h2>post advice</h2>
 		<form id="postAdvice" name="postAdvice" method="post" action="/Personal-health-management-system/postReciver/postAdvice.php">
-			<input type="password" style="display:none" value="<?php echo $user->uid ?>" name="advicePosterId" id="advicePosterId" />
+			<input type="text" style="display:none" value="<?php echo $user->uid ?>" name="advicePosterId" id="advicePosterId" />
 			<p>
 				to username
 				<input type="text" name="adviceReciverName" id="adviceReciverName" />

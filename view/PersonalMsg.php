@@ -51,7 +51,7 @@
 		</ul>
 		<h2>post question</h2>
 		<form id="personalPost" name="personalPost" method="post" action="/Personal-health-management-system/postReciver/postQuestion.php">
-			<input type="password" style="display:none" value="<?php echo $user->uid ?>" name="personalQuestionPosterId" id="personalQuestionPosterId" />
+			<input type="text" style="display:none" value="<?php echo $user->uid ?>" name="personalQuestionPosterId" id="personalQuestionPosterId" />
 			<p>
 				coach/doctor name
 				<input type="text" name="personalQuestionReciverName" id="personalQuestionReciverName" />

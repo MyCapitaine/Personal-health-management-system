@@ -1,6 +1,13 @@
 <?php
 require_once('model.php');
 class Activities implements Model{
+	public $aid;
+	public $creatorUid;
+	public $activityName;
+	public $inner;
+	public $time;
+	public $status;
+	public $joiners;
 	public function createTable(& $dbController) {
 		$createActivities =<<<EOF
 			create table ACTIVITIES
