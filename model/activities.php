@@ -7,7 +7,7 @@ class Activities implements Model{
 	public $inner;
 	public $time;
 	public $status;
-	public $joiners;
+	public $joinersIdList;
 	public function createTable(& $dbController) {
 		$createActivities =<<<EOF
 			create table ACTIVITIES
