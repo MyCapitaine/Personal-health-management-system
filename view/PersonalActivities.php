@@ -1,4 +1,8 @@
 <?php 
+	$pageType = 'normal';
+	require('../view/part/checkCookie.inc'); 
+?>
+<?php 
 	$partName = 'PersonalActivities';
 	require('../view/part/head.inc'); 
 	require('../controller/UserController.php');

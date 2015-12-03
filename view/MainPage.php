@@ -1,5 +1,9 @@
 <?php 
-	$partName = 'Manager';
+	$pageType = 'normal';
+	require('../view/part/checkCookie.inc'); 
+?>
+<?php 
+	$partName = 'MainPage';
 	require('../view/part/head.inc'); 
 ?>
 	<body>

@@ -10,7 +10,7 @@ class UserController {
 		$command = "select * from USERS where userName = '".$userName."';";
 		$result = $this->dbController->query($command);
 		$row = $result->fetchArray();
-		if($row && $row['password'] == $password) {
+		if($row && md5(md5($row['password'])) == $password) {
 			$user = new Users();
 			$user->info = $row['info'];
 			$user->uid = $row['uid'];

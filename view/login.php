@@ -11,10 +11,11 @@
 			</p>
 			<p>
 				password
-				<input type="password" name="loginPassword" id="loginPassword" />
+				<input type="password" style="display:none" name="loginPassword" id="loginPassword" />
+				<input type="password" name="inputPassword", id="inputPassword">
 			</p>
 			<p>
-				<input type="submit" name="loginSubmit" id="loginSubmit" value="login"  />
+				<input type="submit" name="loginSubmit" id="loginSubmit" value="login" onclick="hidPassword();"  />
 			</p>
 		</form>
 

@@ -1,4 +1,8 @@
 <?php 
+	$pageType = 'coach';
+	require('../view/part/checkCookie.inc'); 
+?>
+<?php 
 	$partName = 'Coach';
 	require('../view/part/head.inc'); 
 	require_once('../controller/AdviceController.php');

@@ -11,7 +11,6 @@ $oldPassword = test_input($_POST['personal_management_oldPassword']);
 $newPassword = test_input($_POST['personal_management_newPassword']);
 
 if(empty($info) && empty($newPassword)) $error = $error."NO CHANGE";
-
 if($error == "") {
 	require_once("../controller/UserController.php");
 	$controller = new UserController();
@@ -21,7 +20,6 @@ if($error == "") {
 		else 
 			$log = "update fail";
 	}
-
 	else {
 		if($controller->checkUser($userName, $oldPassword) != null &&
 			$controller->updateUser(null, $userName, $newPassword, null, ($info == "" ? null : $info)))

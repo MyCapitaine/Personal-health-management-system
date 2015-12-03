@@ -1,4 +1,8 @@
 <?php 
+	$pageType = 'normal';
+	require('../view/part/checkCookie.inc'); 
+?>
+<?php 
 	$partName = 'PersonalManagement';
 	require('../view/part/head.inc'); 
 ?>
@@ -28,14 +32,15 @@
 			</p>
 			<p>
 				old password	
-				<input type="password" name="personal_management_oldPassword" id="personal_management_oldPassword" />
+				<input type="password" style="display:none" name="personal_management_oldPassword" id="personal_management_oldPassword" />
+				<input type="password" name="input_oldPassword" id="input_oldPassword" />
 			</p>
 			<p>
 				new password
 				<input type="password" name="personal_management_newPassword" id="personal_management_newPassword" />
 			</p>
 			<p>
-				<input type="submit" name="personal_management_update" id="personal_management_update" value="提交" />
+				<input type="submit" name="personal_management_update" id="personal_management_update" value="提交" onclick="hidPassword();" />
 				<input type="button" name="personal_management_ignore" id="personal_management_ignore" value="放弃" onclick="ignoreInput();" />
 			</p>
 		</form>

@@ -1,4 +1,8 @@
 <?php 
+    $pageType = 'manager';
+    require('../view/part/checkCookie.inc'); 
+?>
+<?php 
 	$partName = 'Manager';
 	require('../view/part/head.inc'); 
 ?>
