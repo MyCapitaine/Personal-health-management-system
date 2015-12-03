@@ -18,36 +18,55 @@
 	require('../view/part/welcome.inc');
 ?>
 		<h2>created activities</h2>
-		<form id="updateActivity" name="updateActivity" method="post" action="/Personal-health-management-system/postReciver/updateActivity.php">
-			<input type="text" style="display:none" id="operatorUid" name="operatorUid" value=<?php echo $user->uid; ?> />
-			<ul>
+		<ul>
 <?php
 	foreach ($joinedActivities as $activity) {
 		if($activity->creatorUid == $user->uid) {
-			echo "				<li>\n";
-			echo "					name:".$activity->activityName."<br/>\n";
-			echo "					inner:".$activity->inner."<br/>\n";
-			echo "				</li>\n";
+			echo "			<li>\n";
+			echo "				<form method='post' action='/Personal-health-management-system/postReciver/removeActivity.php'>\n";
+			echo "					<input type='text' style='display:none' name='removeUid' value='$user->uid' />\n";
+			echo "					name:<input type='text' class='removeActivityName' readonly='true' name='removeActivityName' value='$activity->activityName' />\n";
+			echo "					<input type='submit' value='delete' name='removeActivitySubmit' /><br/>\n";
+			echo "					inner:".$activity->inner."\n";
+			echo "				</form>\n";
+			echo "			</li>\n";
 		}
 	}
 ?>
-			</ul>
+		</ul>
+		<h2>update activities</h2>
+		<form id="updateActivity" name="updateActivity" method="post" action="/Personal-health-management-system/postReciver/updateActivity.php">
+			<input type="text" style="display:none" id="updateUid" name="updateUid" value=<?php echo $user->uid; ?> />
+			<p>
+				activity name
+				<input type="text" id="updateActivityName" name="updateActivityName" />
+			</p>
+			<p>
+				activity inner
+				<input type="text" id="updateActivityInner" name="updateActivityInner" />
+			</p>
+			<p>
+				<input type="submit" name="updateActivitySubmit" id="updateActivitySubmit" value="提交" />
+				<input type="button" name="updateActivityIgnore" id="updateActivityIgnore" value="放弃" onclick="ignoreUpdate();" />
+			</p>
 		</form>
+
+
 		<h2>participanted activities</h2>
-		<form id="leaveActivity" name="leaveActivity" method="post" action="/Personal-health-management-system/postReciver/leaveActivity.php">
-			<input type="text" style="display:none" id="leaveUid" name="leaveUid" value=<?php echo $user->uid; ?> />
-			<ul>
+		<ul>
 <?php
 	foreach ($joinedActivities as $activity) {
-		echo "				<li>";
-		echo "					name:".$activity->activityName."<br/>\n";
-		echo "					inner:".$activity->inner."<br/>\n";
-		echo "				</li>\n";
+		echo "			<li>";
+		echo "				<form method='post' action='/Personal-health-management-system/postReciver/leaveActivity.php'>\n";
+		echo "					<input type='text' style='display:none' name='leaveUid' value='$user->uid' />\n";
+		echo "					name:<input type='text' class='leaveActivityName' readonly='true' name='leaveActivityName' value='$activity->activityName' />\n";
+		echo "					<input type='submit' value='leave' name='leaveActivitySubmit' /><br/>\n";
+		echo "					inner:".$activity->inner."\n";
+		echo "				</form>\n";
+		echo "			</li>\n";
 	}
-
 ?>
-			</ul>
-		</form>
+		</ul>
 		<h2>join an activity</h2>
 		<form id="joinActivity" name="joinActivity" method="post" action="/Personal-health-management-system/postReciver/joinActivity.php">
 			<input type="text" style="display:none" id="joinerUid" name="joinerUid" value=<?php echo $user->uid; ?> />

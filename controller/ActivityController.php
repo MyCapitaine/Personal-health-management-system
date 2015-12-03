@@ -7,7 +7,7 @@ class ActivityController {
 	}
 
 	public function joinActivity($uid, $activityName) {
-		$command1 = "select * from ACTIVITIES where activityName='".$activityName."';";
+		$command1 = "select * from ACTIVITIES where activityName='$activityName';";
 		$activity = $this->dbController->query($command1)->fetchArray();
 		if(!$activity) return false;
 		$aid = $activity['AID'];
@@ -19,17 +19,47 @@ class ActivityController {
 		return $this->dbController->exec($command3);
 	}
 
+	public function leaveActivity($uid, $activityName) {
+		$command1 = "select * from ACTIVITIES where activityName='$activityName';";
+		$activity = $this->dbController->query($command1)->fetchArray();
+		if(!$activity || $activity['creatorUid'] == $uid) return false;
+
+		$command2 = "delete from ACTORS where uid=$uid and AID=".$activity['AID'].";";
+		return $this->dbController->exec($command2);
+	}
+
+
+
 	public function addActivity($creatorUid, $activityName, $inner) {
 		$command = "insert into ACTIVITIES values(null, $creatorUid, '$activityName', '$inner',".time().",'acting');";
 		return $this->dbController->exec($command) && $this->joinActivity($creatorUid, $activityName);
 	}
 
-	public function updateActivity($creatorUid, $activityName, $inner) {
+	public function updateActivity($creatorUid, $activityId, $activityName, $inner) {
+		$condition = "";
+		$set = "";
+		if($activityId == null) {
+			$condition = "activityName='$activityName' and creatorUid=$creatorUid";
+			$set = "inner='$inner'";
+		}
+		else {
+			$condition = "activityId=$activityId and creatorUid=$creatorUid";
+			$set = "activityName='$activityName', inner='$inner'";
+		}
+		$command = "update ACTIVITIES set $set where $condition";
+		return $this->dbController->exec($command);
 
 	}
 
-	public function removeActivity() {
-
+	public function removeActivity($uid, $activityName) {
+		$command1 = "select * from ACTIVITIES where activityName='$activityName';";
+		echo $command1;
+		$result = $this->dbController->query($command1)->fetchArray();
+		if(!$result) return false;
+		$aid = $result['AID'];
+		$command2 = "delete from ACTIVITIES where AID=$aid and creatorUid=$uid;";
+		$command2 = $command2."delete from ACTORS where AID=$aid;";
+		return  $this->dbController->exec($command2);
 	}
 
 	public function getActivityById($aid) {
