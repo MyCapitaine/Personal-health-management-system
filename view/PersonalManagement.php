@@ -25,7 +25,7 @@
 ?>
 		</p>
 		<form id="personal_management_post" name="personal_management_post" method="post" action="/Personal-health-management-system/postReciver/PersonalManagementOperation.php">
-			<input type="password" style="display:none" name="userName" id="userName" value=<?php echo $_COOKIE['user'] ?> />
+			<input type="password" style="display:none" name="userName" id="userName" value='<?php echo $_COOKIE['user'] ?>' />
 			<p>
 				infomation
 				<input type="text" name="personal_management_infomation" id="personal_management_infomation" />

@@ -1,13 +1,22 @@
 <?php
 require_once('model.php');
 class Datas implements Model {
+	public $uid;
+	public $time;
+	public $sportsTime;
+	public $restTime;
+	public $avgHeartRate;
+	public $avgBloodPressure;
 	public function createTable(& $dbController) {
 		$createDatas =<<<EOF
 			create table DATAS
 				(
 					uid integer NOT NULL,
 					time int NOT NULL,
-					data text NOT NULL
+					sportsTime int NOT NULL,
+					restTime int NOT NULL,
+					avgHeartRate real NOT NULL,
+					avgBloodPressure real NOT NULL
 				);
 EOF;
 

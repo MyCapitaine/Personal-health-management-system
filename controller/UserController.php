@@ -104,6 +104,12 @@ class UserController {
 		return $this->dbController->exec($command);
 	}
 
+	public function checkUidAndName($uid, $name) {
+		$command = "select * from USERS where userName='$name' and uid='$uid';";
+		$result = $this->dbController->query($command)->fetchArray();
+		if($result) return true;
+		else return false;
+	}
 
 	public function close() {
 		$this->dbController->close();
