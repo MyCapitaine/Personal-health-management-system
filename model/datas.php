@@ -16,7 +16,8 @@ class Datas implements Model {
 					sportsTime int NOT NULL,
 					restTime int NOT NULL,
 					avgHeartRate real NOT NULL,
-					avgBloodPressure real NOT NULL
+					avgBloodPressure real NOT NULL,
+					primary key(uid, time)
 				);
 EOF;
 

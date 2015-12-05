@@ -11,6 +11,17 @@ class AdviceController {
 		return $this->dbController->exec($command);
 	}
 
+	public function makeAdvices($posterId, $reciverIds, $infos) {
+		$size = sizeof($reciverIds);
+		$command = "BEGIN TRANSACTION;";
+		$time = time();
+		for ($i=0; $i < $size; $i++) { 
+			$command = $command."insert into ADVICES values($posterId,".$reciverIds[$i].",".($time + $i).",0,'".$infos[$i]."');";
+		}
+		$command = $command."COMMIT TRANSACTION;";
+		return $this->dbController->exec($command);
+	}
+
 	public function posterGetAdvices($posterId) {
 		$command = "select * from ADVICES where posterId = ".$posterId.";";
 		$result = $this->dbController->query($command);

@@ -5,7 +5,8 @@
 <?php 
 	$partName = 'MainPage';
 	require('../view/part/head.inc'); 
-?>
+?>	
+	</head>
 	<body>
 		<h1>MainPage</h1>
 <?php 

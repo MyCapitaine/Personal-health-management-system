@@ -6,8 +6,7 @@
 	$partName = 'Manager';
 	require('../view/part/head.inc'); 
 ?>
-	
-
+    </head>
     <body>
         <h1>ManagerPage</h1>
 <?php

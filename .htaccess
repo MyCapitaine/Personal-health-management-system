@@ -1,3 +1,4 @@
 RewriteEngine On 
 RewriteBase / 
 RewriteRule userData/([0-9]+)/([0-9][0-9][0-9][0-9])/([0-9][0-9])/([0-9][0-9])/([0-9][0-9])$ Personal-health-management-system/postReciver/restfulData.php
+RewriteRule userDatas/([0-9]+)$ Personal-health-management-system/postReciver/userDatas.php

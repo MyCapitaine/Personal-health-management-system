@@ -69,7 +69,7 @@ class UserController {
 	}
 
 	public function addUser($userName, $password, $type) {
-		$command = "insert into USERS values(NULL,'".$type."','".$userName."','".$password."','');";
+		$command = "insert into USERS values(NULL,'$type','$userName','$password','');";
 		return $this->dbController->exec($command);
 	}
 

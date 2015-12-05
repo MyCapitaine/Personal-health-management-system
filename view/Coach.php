@@ -19,7 +19,7 @@
 	$recivedQuestions = $questionController->reciverGetQuestions($user->uid);
 	$questionController->close();
 ?>
-
+	</head>
 	<body>
 		<h1>CoachPage</h1>	  
 <?php 
@@ -69,6 +69,12 @@
 				<input type="submit" name="advicePost" id="advicePost" value="发送" />
 				<input type="button" name="adviceIgnore" id="adviceIgnore" value="取消" onclick="ignoreInput();" />	  
 			</p>
+		</form>
+
+		<h2>upload advices</h2>
+		<form method="post" enctype="multipart/form-data" action="/Personal-health-management-system/postReciver/adviceFile.php">
+			<p><input type="file" name="adviceFile" /></p>
+			<p><input type="submit" /></p>
 		</form>
 	</body>
 </html>

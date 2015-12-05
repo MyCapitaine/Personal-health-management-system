@@ -11,6 +11,16 @@ class DataController {
 		return $this->dbController->exec($command);
 	}
 
+	public function addDatas($uid, $times, $sportsTimes, $restTimes, $avgHeartRates, $avgBloodPressures) {
+		$size = sizeof($times);
+		$command = "BEGIN TRANSACTION;";
+		for ($i=0; $i < $size; $i++) { 
+			$command = $command."insert into DATAS values($uid,".$times[$i].",".$sportsTimes[$i].",".$restTimes[$i].",".$avgHeartRates[$i].",".$avgBloodPressures[$i].");";
+		}
+		$command = $command."COMMIT TRANSACTION;";
+		return $this->dbController->exec($command);
+	}
+
 	public function getDatas($uid, $timeStart, $timeEnd) {
 		$condition = "";
 		if($timeStart != null) $condition = "time>$timeStart";
@@ -18,10 +28,12 @@ class DataController {
 			if($condition != "") $condition = $condition." and time<$timeEnd";
 			else $condition = "time<$timeEnd";
 		}
-		$command = "select * from DATAS where uid=$uid and $condition;";
+		$command = "select * from DATAS where uid=$uid";
+		if($condition != "") $command = $command." and $condition;";
+		else $command = $command.";";
 		$result = $this->dbController->query($command);
 		$datas = array();
-		while($row = $result->fetchArray) {
+		while($row = $result->fetchArray()) {
 			$data = new Datas();
 			$data->uid = $row['uid'];
 			$data->time = $row['time'];
@@ -29,7 +41,7 @@ class DataController {
 			$data->restTime = $row['restTime'];
 			$data->avgHeartRate = $row['avgHeartRate'];
 			$data->avgBloodPressure = $row['avgBloodPressure'];
-			$Datas[] = $data;
+			$datas[] = $data;
 		}
 		return $datas;
 

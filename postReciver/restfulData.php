@@ -61,6 +61,7 @@ else
 
 function toErrorPage() {
 	header('refresh:0;url=/Personal-health-management-system/view/error.php');
+	exit;
 }
 
 function test_input($input) {

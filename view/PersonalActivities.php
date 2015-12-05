@@ -15,7 +15,7 @@
 	$joinedActivities = $activityController->getJoinedActivities($user->uid);
 	$activityController->close();
 ?>
-	
+	</head>
 	<body>
 		<h1><a href="/Personal-health-management-system/view/MainPage.php">MainPage></a>PersonalMsg</h1>	
 <?php 

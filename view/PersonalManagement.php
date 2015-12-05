@@ -6,7 +6,8 @@
 	$partName = 'PersonalManagement';
 	require('../view/part/head.inc'); 
 ?>
-
+		<script src="../lib/md5.js" type="text/javascript"></script>
+	</head>
 	<body>
 		<h1>
 			<a href="/Personal-health-management-system/view/MainPage.php">MainPage></a>

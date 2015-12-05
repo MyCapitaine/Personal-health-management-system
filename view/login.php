@@ -2,7 +2,8 @@
 	$partName = 'login';
 	require('../view/part/head.inc'); 
 ?>
-
+		<script src="../lib/md5.js" type="text/javascript"></script>
+	</head>
 	<body>
 		<form id="loginPost" name="loginPost" method="post" action="/Personal-health-management-system/postReciver/login.php">
 			<p>

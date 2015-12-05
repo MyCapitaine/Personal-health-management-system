@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding="ISO-8859-1"?>
+<advices posetername="Doctor01">
+	<advice>
+		<name>Normal01</name>
+		<text>test chat</text>
+	</advice>
+	<advice>
+		<name>Normal01</name>
+		<text>test chat again</text>
+	</advice>
+</advices>

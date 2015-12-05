@@ -5,4 +5,3 @@
 		<link href="../view/css/<?php echo $partName; ?>.css" rel="stylesheet" type="text/css" />
 		<script src="../view/script/<?php echo $partName; ?>.js" type="text/javascript"></script>
 		<title><?php echo $partName; ?></title>
-	</head>
